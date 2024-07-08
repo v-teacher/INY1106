@@ -1,4 +1,4 @@
-# SIGLA ASIGNATURA - NOMBRE ASIGNATURA
+# INY1106 - INFRAESTRUCTURA DE APLICACIONES II
 
 <p align="left" style="text-align:left;">
   <a href="https://www.duoc.cl/">
