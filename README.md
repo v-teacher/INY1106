@@ -6,7 +6,7 @@
   </a>
 </p>
 
-# NOMBRE DE ACTIVIDAD
+<!-- # NOMBRE DE ACTIVIDAD
 
 ## ANTECEDENTES GENERALES
 
@@ -18,7 +18,7 @@ Para el desarrollo de esta actividad se requiere ...
 
 ## DESARROLLO DE ACTIVIDAD
 
-Esta actividad consiste en ...
+Esta actividad consiste en ... -->
 
 ## CONTRIBUCIONES
 
