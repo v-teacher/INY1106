@@ -36,7 +36,7 @@ Esta actividad consiste en usar la política de red de Kubernetes para restringi
 
 ## CONTRIBUCIONES
 
-Contribuciones son bienvenidas! Revisa nuestra [Guía de Contribuciones](./docs/contributors.md)
+Contribuciones son bienvenidas! Revisa nuestra [Guía de Contribuciones](./docs/CONTRIBUTING.md)
 
 ## CÓDIGO DE CONDUCTA
 
