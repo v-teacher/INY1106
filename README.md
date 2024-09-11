@@ -6,6 +6,15 @@
   </a>
 </p>
 
+
+# ACTIVIDADES
+
+##### Experiencia 2 - [**Proyecto Serverless: "Image Metadata API"**](./image_metadata_api/1_actividad_image_metadata_api.md). 
+
+Contiene:
+- Ejemplo paso a paso para aplicarlo en [**AWS**](./image_metadata_api/2_image_metadata_api_aws.md)
+- [**Código fuente**](./image_metadata_api) de utilidad para la actividad.
+
 <!-- # NOMBRE DE ACTIVIDAD
 
 Calico for NetworkPolicy
