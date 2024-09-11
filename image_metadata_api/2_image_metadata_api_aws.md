@@ -17,8 +17,7 @@ Este proyecto permitirá subir imágenes a S3, almacenar los metadatos en Dynamo
    - Región: us-east-1.
    - Haz clic en **Crear bucket**.
 
-<img src="./img/image.png" alt="bucket s3" width="70%">
-
+<img src="img/image.png" alt="bucket s3" width="70%">
 
 ### **Paso 3: Crear la Tabla DynamoDB para Guardar Metadatos**
 
@@ -40,7 +39,7 @@ Este proyecto permitirá subir imágenes a S3, almacenar los metadatos en Dynamo
    - Tiempo de ejecución: Selecciona **Python 3.x**.
    - Rol de ejecución: Selecciona **Usar rol proporcionado por el laboratorio**.
    - Haz clic en **Crear función**.
-   - Copia el código proporcionado para [upload_image](./image_metadata_api/upload_image.py) y pégalo en el editor de código Lambda.
+   - Copia el código proporcionado para [upload_image](./image_metadata_api/src/upload_image.py) y pégalo en el editor de código Lambda.
    - Handler: upload_image.upload_image
 
    - **Variables de Entorno**: 
@@ -51,7 +50,7 @@ Este proyecto permitirá subir imágenes a S3, almacenar los metadatos en Dynamo
 2. **Crear la Segunda Función Lambda (`get_image_metadata`)**:
    - Crea otra función Lambda como lo hiciste anteriormente.
    - Nombre de la función: `get_image_metadata`.
-   - Copia el código proporcionado para [get_image_metadata](./image_metadata_api/get_image_metadata.py).
+   - Copia el código proporcionado para [get_image_metadata](./image_metadata_api/src/get_image_metadata.py).
    - Handler: get_image_metadata.get_image_metadata
 
    - **Variables de Entorno**:
@@ -83,7 +82,7 @@ Este proyecto permitirá subir imágenes a S3, almacenar los metadatos en Dynamo
    - Haz clic en **Deploy API** y selecciona un stage como **dev** o crea uno nuevo.
 
 4. **Swagger API Gateway JSON File**:
-   - En caso de quedar atrapado en la configuración se le ofrece un archivo [JSON Swagger](./image_metadata_api_dev_swagger_apigateway.json) para ayudarlo en el proceso. Recuerde reemplazar los datos necesarios en el archivo.
+   - En caso de quedar atrapado en la configuración se le ofrece un archivo [JSON Swagger](./src/image_metadata_api_dev_swagger_apigateway.json) para ayudarlo en el proceso. Recuerde reemplazar los datos necesarios en el archivo.
    - Reemplaza tu región AWS si corresponde. 
    - Reemplaza {account_id} con tu ID de cuenta AWS.
    - Reemplaza upload_image y get_image_metadata con los nombres exactos de tus funciones Lambda.
