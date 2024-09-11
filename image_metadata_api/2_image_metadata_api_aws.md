@@ -1,10 +1,13 @@
-### **Proyecto Serverless Paso a Paso para Implementar en AWS:** 
-**"Image Metadata API"**
+## **Proyecto Serverless: "Image Metadata API"** 
+**Paso a Paso para Implementar en AWS**
 
 
-A continuación, te doy un paso a paso detallado para implementar el proyecto "Image Metadata API" en AWS utilizando servicios serverless: AWS Lambda, Amazon S3 y Amazon DynamoDB. 
+A continuación, revisaremos un paso a paso para implementar el proyecto "Image Metadata API" en Amazon Web Services utilizando servicios serverless: AWS Lambda, Amazon S3, API Gateway y Amazon DynamoDB. 
 
-Este proyecto permitirá subir imágenes a S3, almacenar los metadatos en DynamoDB y recuperar esos metadatos a través de una API REST.
+La infraestructura, representada en el diagrama, y desarrollo de la aplicación en Python, nos permitirá subir imágenes a S3, almacenar los metadatos en DynamoDB y recuperar esos metadatos a través de una API REST.
+
+#### Diagrama Aplicación Serverless: Image Metadata API
+<img src="img/image_metadata_api_diagram.png" alt="metadata api diagram" width="70%">
 
 ### **Paso 1: Configurar el Entorno en AWS**
 
@@ -88,7 +91,7 @@ Este proyecto permitirá subir imágenes a S3, almacenar los metadatos en Dynamo
    - Reemplaza upload_image y get_image_metadata con los nombres exactos de tus funciones Lambda.
    - Reemplaza con el ARN de un rol IAM que permita a API Gateway invocar las funciones Lambda (el que ofrece el laboratorio).
 
-<img src="img/image-4.png" alt="alt text" width="70%">
+<img src="img/image-4.png" alt="api gw" width="70%">
 
 
 ### **Paso 6: Probar la API**

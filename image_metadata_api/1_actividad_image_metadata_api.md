@@ -1,6 +1,6 @@
-### **Proyecto Serverless: "Image Metadata API"**
+### **Proyecto Serverless de aplicación general: "Image Metadata API"**
 
-El objetivo de este proyecto es crear una API REST simple que permita subir imágenes a un almacenamiento de objetos, almacenar los metadatos de las imágenes en una base de datos serverless, y recuperar esos metadatos mediante una API. Este proyecto es aplicable a AWS, Azure y Google Cloud Platform (GCP), utilizando solo dos funciones en Python, sin embargo el código de ejemplo es compatible para [AWS](./image_metadata_api/2_image_metadata_api_aws.md).
+El objetivo de este proyecto es crear una API REST simple que permita subir imágenes a un almacenamiento de objetos, almacenar los metadatos de las imágenes en una base de datos serverless, y recuperar esos metadatos mediante una API. Este proyecto es aplicable a AWS, Azure y Google Cloud Platform (GCP), utilizando solo dos funciones en Python, sin embargo el código de ejemplo es compatible para [AWS](./2_image_metadata_api_aws.md).
 
 ### **Arquitectura General:**
 
