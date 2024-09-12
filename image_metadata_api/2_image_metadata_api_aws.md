@@ -11,7 +11,7 @@ La infraestructura, representada en el diagrama, y desarrollo de la aplicación 
 
 ### **Paso 1: Configurar el Entorno en AWS**
 
-**Inicia sesión** en la Consola de Administración de que ofrace [AWS Academy Learner Lab](https://awsacademy.instructure.com/login/canvas).
+**Inicia sesión** en la Consola de Administración que nos ofrace [AWS Academy Learner Lab](https://awsacademy.instructure.com/login/canvas).
 
 ### **Paso 2: Crear el Bucket S3 para Almacenamiento de Imágenes**
 
@@ -42,7 +42,7 @@ La infraestructura, representada en el diagrama, y desarrollo de la aplicación 
    - Tiempo de ejecución: Selecciona **Python 3.x**.
    - Rol de ejecución: Selecciona **Usar rol proporcionado por el laboratorio**.
    - Haz clic en **Crear función**.
-   - Copia el código proporcionado para [upload_image](./image_metadata_api/src/upload_image.py) y pégalo en el editor de código Lambda.
+   - Copia el código proporcionado para [upload_image](./src/upload_image.py) y pégalo en el editor de código Lambda.
    - Handler: upload_image.upload_image
 
    - **Variables de Entorno**: 
@@ -53,7 +53,7 @@ La infraestructura, representada en el diagrama, y desarrollo de la aplicación 
 2. **Crear la Segunda Función Lambda (`get_image_metadata`)**:
    - Crea otra función Lambda como lo hiciste anteriormente.
    - Nombre de la función: `get_image_metadata`.
-   - Copia el código proporcionado para [get_image_metadata](./image_metadata_api/src/get_image_metadata.py).
+   - Copia el código proporcionado para [get_image_metadata](./src/get_image_metadata.py).
    - Handler: get_image_metadata.get_image_metadata
 
    - **Variables de Entorno**:
