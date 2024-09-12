@@ -98,7 +98,7 @@ La infraestructura, representada en el diagrama, y desarrollo de la aplicación 
 
 ### **Paso 6: Probar la API**
 
-1. **Subir una Imagen**:
+1. **Subir una Imagen (Formato JPG)**:
    - Envía una solicitud `POST` al endpoint `/upload` con la imagen en el cuerpo de la solicitud.
 
 <img src="img/image-5.png" alt="postman subiendo imagen" width="80%">
