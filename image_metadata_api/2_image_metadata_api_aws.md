@@ -43,7 +43,7 @@ La infraestructura, representada en el diagrama, y desarrollo de la aplicación 
    - Rol de ejecución: Selecciona **Usar rol proporcionado por el laboratorio**.
    - Haz clic en **Crear función**.
    - Copia el código proporcionado para [upload_image](./src/upload_image.py) y pégalo en el editor de código Lambda.
-   - Handler: upload_image.upload_image
+   - Handler: upload_image.upload_image **(recuerda que el valor depende del nombre del archivo del código y función)**
 
    - **Variables de Entorno**: 
      - Ve a **Configuración > Variables de entorno** y añade las siguientes:
@@ -54,7 +54,7 @@ La infraestructura, representada en el diagrama, y desarrollo de la aplicación 
    - Crea otra función Lambda como lo hiciste anteriormente.
    - Nombre de la función: `get_image_metadata`.
    - Copia el código proporcionado para [get_image_metadata](./src/get_image_metadata.py).
-   - Handler: get_image_metadata.get_image_metadata
+   - Handler: get_image_metadata.get_image_metadata **(recuerda que el valor depende del nombre del archivo del código y función)**
 
    - **Variables de Entorno**:
      - Añade `TABLE_NAME` con el valor `ImageMetadata`.
@@ -85,11 +85,13 @@ La infraestructura, representada en el diagrama, y desarrollo de la aplicación 
    - Haz clic en **Deploy API** y selecciona un stage como **dev** o crea uno nuevo.
 
 4. **Swagger API Gateway JSON File**:
-   - En caso de quedar atrapado en la configuración se le ofrece un archivo [JSON Swagger](./src/image_metadata_api_dev_swagger_apigateway.json) para ayudarlo en el proceso. Recuerde reemplazar los datos necesarios en el archivo.
-   - Reemplaza tu región AWS si corresponde. 
+   - En caso de quedar atrapado en la configuración de la API Gateway, se le ofrece un archivo [JSON Swagger](./src/image_metadata_api_dev_swagger_apigateway.json) para ayudarlo en el proceso y que lo importe directamente en el recurso de API Gateway. 
+   - Recuerde reemplazar los datos necesarios en el archivo.
+   - Reemplaza la región AWS si corresponde. 
    - Reemplaza {account_id} con tu ID de cuenta AWS.
-   - Reemplaza upload_image y get_image_metadata con los nombres exactos de tus funciones Lambda.
-   - Reemplaza con el ARN de un rol IAM que permita a API Gateway invocar las funciones Lambda (el que ofrece el laboratorio).
+   - En caso de que corresponda reemplaza **upload_image** y **get_image_metadata** con los nombres exactos de tus funciones Lambda.
+   - Reemplaza con el ARN de un rol IAM que permita a API Gateway invocar las funciones Lambda (Learner Lab ya tiene un rol que le permite hacer esto).
+
 
 <img src="img/image-4.png" alt="api gw" width="70%">
 
@@ -99,12 +101,18 @@ La infraestructura, representada en el diagrama, y desarrollo de la aplicación 
 1. **Subir una Imagen**:
    - Envía una solicitud `POST` al endpoint `/upload` con la imagen en el cuerpo de la solicitud.
 
-<img src="img/image-5.png" alt="postman subiendo imagen" width="90%">
+<img src="img/image-5.png" alt="postman subiendo imagen" width="80%">
 
 2. **Obtener Metadatos**:
    - Envía una solicitud `GET` al endpoint `/metadata/{image_id}`, reemplazando `{image_id}` con el ID de la imagen retornada en el paso anterior.
 
-<img src="img/image-6.png" alt="postman obteniendo metadata" width="90%">
+<img src="img/image-6.png" alt="postman obteniendo metadata" width="80%">
+
+
+#### **Troubleshooting**:
+   - En caso de tener problemas de permisos en la invocación de Lambda u otro recurso de la infraestructura, revise que los roles aplicados en los servicios sean los correctos.
+   - En caso de continuar con problemas de invocación de las Lambdas, considere agregar el permiso con comandos de AWS CLI usando CloudShell ([Ejemplo](./src/add_lambda_permision.sh)). 
+   - Apóyese también en la resolución del problema revisando los logs de Cloudwatch y usando las opciones de testing, tanto en las Lambdas como en su API Gateway. 
 
 ### **Conclusión**
 
