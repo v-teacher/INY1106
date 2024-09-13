@@ -1,0 +1,57 @@
+name: Deploy to Amazon EKS
+
+on:
+  push:
+    branches: [development, testing, release]
+    paths-ignore:
+      - ".github/**"
+      - ".test/**"
+  workflow_dispatch:
+
+env:
+  AWS_REGION: ${{ vars.AWS_REGION }} # set this to your preferred AWS region, e.g. us-west-1
+  ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY }} # set this to your Amazon ECR repository name
+  # KUBE_CONFIG_DATA: #${{ vars.KUBE_CONFIG_DATA }} # set this to your base64-encoded Kubernetes configuration
+  IMAGE_TAG: ${{ github.sha }} # set the image tag to the GitHub commit SHA
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: us-east-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }} .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }}
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }}" >> $GITHUB_ENV
+
+      - name: Set up Kustomize
+        uses: imranismail/setup-kustomize@v1
+
+      - name: Deploy to Amazon EKS
+        uses: steebchen/kubectl@v2.0.0
+        with:
+          args: set image -f k8s/deployment.yaml ${CONTAINER_NAME}=$ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }} --kubeconfig /tmp/.kube/config
+          # config: ${{ secrets.KUBE_CONFIG_DATA }}

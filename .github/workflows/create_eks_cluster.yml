@@ -1,0 +1,39 @@
+name: Create EKS Cluster
+
+on:
+  workflow_dispatch: # Permite ejecutar la acción manualmente desde GitHub Actions UI
+
+jobs:
+  create-cluster:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Create EKS Cluster
+        env:
+          CLUSTER_NAME: ${{ vars.CLUSTER_NAME }}
+          KUBERNETES_VERSION: ${{ vars.KUBERNETES_VERSION }}
+          ROLE_ARN: ${{ secrets.EKS_ROLE_ARN }}
+          SUBNET_IDS: ${{ vars.SUBNET_IDS }}
+          SECURITY_GROUP_IDS: ${{ vars.SECURITY_GROUP_IDS }}
+        run: |
+          aws eks create-cluster --region ${{ vars.AWS_REGION }} \
+            --name $CLUSTER_NAME \
+            --kubernetes-version $KUBERNETES_VERSION \
+            --role-arn $ROLE_ARN \
+            --resources-vpc-config subnetIds=$SUBNET_IDS,securityGroupIds=$SECURITY_GROUP_IDS
+
+      - name: Update kubeconfig for EKS Cluster
+        env:
+          CLUSTER_NAME: ${{ vars.CLUSTER_NAME }}
+        run: |
+          aws eks update-kubeconfig --region ${{ vars.AWS_REGION }} --name $CLUSTER_NAME
