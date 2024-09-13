@@ -1,0 +1,35 @@
+# frontend-app deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend-app
+  template:
+    metadata:
+      labels:
+        app: frontend-app
+    spec:
+      containers:
+      - name: frontend-app
+        image: DOCKERHUB_USER/frontend-app:latest # Imagen DockerHub
+        ports:
+        - containerPort: 80
+
+---
+# frontend-app service
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-app
+spec:
+  selector:
+    app: frontend-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer

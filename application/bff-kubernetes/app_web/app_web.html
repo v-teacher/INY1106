@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación Web</title>
+    <script>
+        async function loadUserData() {
+            const response = await fetch('http://a9a95afc87f594952b880f63f0f24d17-1855058242.us-east-1.elb.amazonaws.com:3000/bff/users/123');
+            const userData = await response.json();
+            document.getElementById('user-info').innerText = JSON.stringify(userData);
+        }
+
+        async function loadProductData() {
+            const response = await fetch('http://a9a95afc87f594952b880f63f0f24d17-1855058242.us-east-1.elb.amazonaws.com:3000/bff/products');
+            const productData = await response.json();
+            document.getElementById('product-list').innerText = JSON.stringify(productData);
+        }
+    </script>
+</head>
+<body>
+    <h1>Bienvenido a la Aplicación Web</h1>
+    <button onclick="loadUserData()">Cargar Datos de Usuario</button>
+    <p id="user-info"></p>
+    
+    <button onclick="loadProductData()">Cargar Lista de Productos</button>
+    <p id="product-list"></p>
+</body>
+</html>
