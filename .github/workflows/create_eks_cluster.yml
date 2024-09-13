@@ -1,7 +1,7 @@
 name: Create EKS Cluster
 
 on:
-  workflow_dispatch: # Permite ejecutar la acción manualmente desde GitHub Actions UI
+  workflow_dispatch: # Permite ejecutar la acción manualmente
 
 jobs:
   create-cluster:

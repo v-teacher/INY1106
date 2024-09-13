@@ -53,5 +53,6 @@ jobs:
       - name: Deploy to Amazon EKS
         uses: steebchen/kubectl@v2.0.0
         with:
-          args: set image -f k8s/deployment.yaml ${CONTAINER_NAME}=$ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }} --kubeconfig /tmp/.kube/config
-          # config: ${{ secrets.KUBE_CONFIG_DATA }}
+          args: set image -f frontend-deployment.yaml ${CONTAINER_NAME}=$ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }} --kubeconfig /tmp/.kube/config
+          kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }} # Utiliza KUBE_CONFIG_DATA para pasar la configuración del clúster de forma segura
+      
