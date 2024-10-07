@@ -43,6 +43,13 @@ Esta actividad consiste en usar la política de red de Kubernetes para restringi
 
 - [EKS Workshop](https://www.eksworkshop.com/)
 
+
+##### Cloud design patterns, architectures, and implementations
+- [Patrones, arquitecturas e implementaciones de diseño en la nube](https://docs.aws.amazon.com/es_es/prescriptive-guidance/latest/cloud-design-patterns/)
+- [Definición Circuit breaker pattern](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/circuit-breaker.html)
+- [Circuit breaker pattern GitHub Sample](https://github.com/aws-samples/circuit-breaker-netcore-blog)
+
+
 ## CONTRIBUCIONES
 
 Contribuciones son bienvenidas! Revisa nuestra [Guía de Contribuciones](./docs/CONTRIBUTING.md)
