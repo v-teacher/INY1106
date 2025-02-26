@@ -85,11 +85,12 @@ La infraestructura, representada en el diagrama, y desarrollo de la aplicación 
    - Haz clic en **Deploy API** y selecciona un stage como **dev** o crea uno nuevo.
 
 4. **Swagger API Gateway JSON File**:
-   - En caso de quedar atrapado en la configuración de la API Gateway, se le ofrece un archivo [JSON Swagger](./src/image_metadata_api_dev_swagger_apigateway.json) para ayudarlo en el proceso y que lo importe directamente en el recurso de API Gateway. 
-   - Recuerde reemplazar los datos necesarios en el archivo.
+   - En caso de quedar atrapado en la configuración de los métodos de la API Gateway, se le ofrece un archivo [JSON Swagger](./src/image_metadata_api_dev_swagger_apigateway.json) para ayudarlo en el proceso y que lo importe directamente en el recurso.
+   - Cree la API Gateway e importe el archivo ofrecido, recuerde reemplazar los datos necesarios en el archivo, indicados a continuación con los de su cuenta.
    - Reemplaza la región AWS si corresponde. 
    - Reemplaza {account_id} con tu ID de cuenta AWS.
-   - En caso de que corresponda reemplaza **upload_image** y **get_image_metadata** con los nombres exactos de tus funciones Lambda.
+   - Reemplaza {api_gw_id} el ID de la API Gateway creada.
+   - En caso de que corresponda reemplaza **upload_image** y **get_image_metadata** con los nombres **exactos** de tus funciones Lambda.
    - Reemplaza con el ARN de un rol IAM que permita a API Gateway invocar las funciones Lambda (Learner Lab ya tiene un rol que le permite hacer esto).
 
 
