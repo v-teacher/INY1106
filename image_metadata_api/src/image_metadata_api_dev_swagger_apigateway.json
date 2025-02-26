@@ -4,7 +4,7 @@
     "version" : "1.0.0",
     "title" : "Image Metadata API"
   },
-  "host" : "irvcovjtw9.execute-api.us-east-1.amazonaws.com",
+  "host" : "{api_gw_id}.execute-api.us-east-1.amazonaws.com",
   "basePath" : "/dev",
   "schemes" : [ "https" ],
   "paths" : {
