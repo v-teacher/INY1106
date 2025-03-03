@@ -114,6 +114,11 @@ La infraestructura, representada en el diagrama, y desarrollo de la aplicación 
    - En caso de tener problemas de permisos en la invocación de Lambda u otro recurso de la infraestructura, revise que los roles aplicados en los servicios sean los correctos.
    - En caso de continuar con problemas de invocación de las Lambdas, considere agregar el permiso con comandos de AWS CLI usando CloudShell ([Ejemplo](./src/add_lambda_permision.sh)). 
    - Apóyese también en la resolución del problema revisando los logs de Cloudwatch y usando las opciones de testing, tanto en las Lambdas como en su API Gateway. 
+   - Puede mirar los logs tanto en la consola de AWS, como en el terminar usando aws-cli:
+
+```
+   aws logs tail /aws/lambda/get_image_metadata --follow
+```
 
 ### **Conclusión**
 
